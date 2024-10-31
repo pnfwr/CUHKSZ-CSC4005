@@ -16,12 +16,16 @@ If you encounter any problem following this instruction, please first have a loo
 
 ## 1. Generate SSH Key Pair on Your Local Machine
 
+If your local machine is Windows, use the `Git Bash` [Download link](https://git-scm.com/downloads).  
+
 ```bash
 ## Execute the following commands on your local machine
 cd ~/.ssh
 ssh-keygen -t rsa -b 1024 -f csc4005_rsa -C "{Put Any Comment You Like}"
-ssh-add -K ./csc4005_rsa
+eval $(ssh-agent)
+ssh-add ~/.ssh/csc4005_rsa
 ```
+References: ['Enter PIN for authenticator' Issue related to SSH](https://stackoverflow.com/questions/64043238/enter-pin-for-authenticator-issue-related-to-ssh), [Could not open a connection to your authentication agent](https://stackoverflow.com/questions/17846529/could-not-open-a-connection-to-your-authentication-agent)  
 
 To check if you make it right, type the following command and you should see a string as the output.
 
